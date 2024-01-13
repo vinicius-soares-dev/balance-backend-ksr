@@ -1,9 +1,11 @@
-import express, { Request, Response} from "express";
+import express from "express";
 
 const routes = express.Router();
 
-routes.get("/", (req: Request, res: Response ) => {
-  res.status(200).send("Hello World");
-})
+const LoginController = require("../controllers/LoginController/index");
+
+
+
+routes.get("/", LoginController.LoginController);
 
 export default routes;
