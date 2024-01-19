@@ -1,12 +1,14 @@
 import express from "express";
+import { readLogin } from "../controllers/LoginController";
+import { LoginValidation } from "../middlewares/LoginValidation";
 
 const routes = express.Router();
 
-const LoginController = require("../controllers/LoginController/index");
 
 
-routes.get("/", LoginController.LoginController);
 
-routes.post("/", LoginController.LoginController);
+routes.get("/", readLogin);
+
+routes.post("/", LoginValidation, readLogin);
 
 export default routes;
